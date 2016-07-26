@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="ui segment" ng-controller="loginController">
+    <h4 class="ui dividing header">{{title}}</h4>  
+    <form class="ui form">
+        <div class="field">
+            <label for="username">Nome de Usuário</label>
+            <input type="text" name="username" value="" placeholder="Digite o seu nome de usuário desejado"/>
+        </div> 
+
+        <div class="field">
+            <label for="password">Senha</label>
+            <input type="text" name="password" value="" placeholder="Digite sua senha de no mínimo 4 dígitos" />
+        </div> 
+
+        <div class="field">
+            <label for="retype-password">Confirmação de senha</label>
+            <input type="text" name="retype-password" value="" placeholder="Confirme sua senha" />
+        </div> 
+
+        <input type="button" class="ui green button"  value="Logar" />
+    </form>
+</div> 
+
+<script src="@Url.Content("~/scripts/App/Controllers/LoginController.js")"></script>

@@ -277,6 +277,9 @@
     <Content Include="Content\themes\default\assets\fonts\icons.svg" />
     <Content Include="Content\themes\default\assets\images\flags.png" />
     <Content Include="Global.asax" />
+    <Content Include="scripts\App\Controllers\HomeController.js" />
+    <Content Include="scripts\App\Controllers\LoginController.js" />
+    <Content Include="scripts\App\Module.js" />
     <Content Include="scripts\Libs\angular-route.js" />
     <Content Include="scripts\Libs\angular-route.min.js" />
     <Content Include="scripts\Libs\ai.0.22.19-build00125.js" />
@@ -307,6 +310,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -319,6 +323,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Views\Accounts\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

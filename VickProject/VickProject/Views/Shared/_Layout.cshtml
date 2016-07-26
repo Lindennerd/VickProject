@@ -6,14 +6,19 @@
     <title>Projeto Vick!</title>
     <link href="@Url.Content("~/Content/semantic.min.css")" rel="stylesheet" />
     <link href="@Url.Content("~/Content/site.css")" rel="stylesheet" />
+
+    <script src="@Url.Content("~/scripts/Libs/angular.min.js")"></script>
+    <script src="@Url.Content("~/scripts/App/Module.js")"></script>    
 </head>
-<body>
+<body ng-app="vickProjectModule">
     @Html.Partial("~/Views/Components/NavMenu.cshtml");
     <div class="ui container">
         @RenderBody()
     </div>
     <script src="@Url.Content("~/scripts/Libs/jquery-1.8.1.min.js")"></script>
-    <script src="@Url.Content("~/scripts/Libs/angular.min.js")"></script>
     <script src="@Url.Content("~/scripts/Libs/semantic.min.js")"></script>
+
+    <script src="@Url.Content("~/scripts/App/Controllers/HomeController.js")"></script>
+
 </body>
 </html>
