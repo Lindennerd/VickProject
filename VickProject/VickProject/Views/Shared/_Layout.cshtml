@@ -10,8 +10,9 @@
     <script src="@Url.Content("~/scripts/Libs/angular.min.js")"></script>
     <script src="@Url.Content("~/scripts/App/Module.js")"></script>    
 </head>
+
 <body ng-app="vickProjectModule">
-    @Html.Partial("~/Views/Components/NavMenu.cshtml");
+    @Html.Partial("~/Views/Components/NavMenu.cshtml")
     <div class="ui container">
         @RenderBody()
     </div>
@@ -19,6 +20,8 @@
     <script src="@Url.Content("~/scripts/Libs/semantic.min.js")"></script>
 
     <script src="@Url.Content("~/scripts/App/Controllers/HomeController.js")"></script>
+
+    <script src="@Url.Content("~/scripts/UI/Components.js")"></script>
 
 </body>
 </html>

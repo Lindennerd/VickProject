@@ -302,6 +302,7 @@
     <Content Include="scripts\Libs\jquery-1.8.1.min.js" />
     <Content Include="scripts\Libs\semantic.js" />
     <Content Include="scripts\Libs\semantic.min.js" />
+    <Content Include="scripts\UI\Components.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
