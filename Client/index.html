@@ -10,12 +10,13 @@
     <script src="Scripts/Libs/angular-route.min.js"></script>
     <script src="Scripts/App/Module.js"></script>
 </head>
-<div ng-include="'templates/Components/navbar.html'"></div>
 <body ng-app="vickProjectModule">
-    <div class="ui container">
-            <div ng-view></div>
-    </div>
+    <div ng-include="'templates/Components/navbar.html'" style="padding-bottom: 1%"></div>
+    
+    <div class="ui container" ng-view></div>
     <script src="Scripts/App/Controllers/HomeController.js"></script>    
+    <script src="Scripts/App/Controllers/SignUpController.js"></script>
+
     <script src="Scripts/Libs/jquery-1.8.1.min.js"></script>
     <script src="Scripts/Libs/semantic.min.js"></script>
 </body>

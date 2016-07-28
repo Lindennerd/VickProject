@@ -9,5 +9,9 @@ app.config(function($routeProvider, $locationProvider){
         .when('/', {
             templateUrl: 'templates/pages/home.html',
             controller: 'HomeController'
-        });
+        })
+        .when('/sign-up', {
+            templateUrl: 'templates/pages/signUp.html',
+            controller: 'SignUpController'
+        })
 });

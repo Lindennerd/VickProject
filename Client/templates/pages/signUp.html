@@ -1,0 +1,55 @@
+﻿<div class="ui segment" ng-controller="SignUpController">
+    <h4 class="ui dividing header">{{title}}</h4>
+    <form class="ui form" name="newUserForm" ng-submit="signUp()" novalidate>
+        <div class="field">
+            <label for="username">Nome de Usuário</label>
+            <input type="text" name="username" ng-model="newUser.userName" placeholder="Digite o seu nome de usuário desejado" required />
+
+            <div ng-messages="newUserForm.username.$error" ng-if="newUserForm.username.$touched && !newUserForm.username.$valid" class="ui negative message">
+                <div class="content">
+                    <p ng-message="required">Este campo é obrigatório</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="email">Endereço de email</label>
+            <input type="email" name="email" ng-model="newUser.emailAddress" placeholder="Digite o seu endereço de email" required />
+
+            <div ng-messages="newUserForm.email.$error" ng-if="newUserForm.email.$touched && !newUserForm.email.$valid" class="ui negative message">
+                <div class="content">
+                    <p ng-if="newUserForm.email.$error.required" ng-message="required">Este campo é obrigatório</p>
+                    <p ng-if="newUserForm.email.$error.email" ng-message="email">O endereço de email digitado é inválido</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="password">Senha</label>
+            <input type="password" name="password" ng-model="newUser.password"
+                   placeholder="Digite sua senha de no mínimo 4 dígitos, contendo letras e números" required password />
+
+            <div ng-messages="newUserForm.password.$error" ng-if="newUserForm.password.$touched && !newUserForm.password.$valid" class="ui negative message">
+                <div class="content">
+                    <p ng-if="newUserForm.password.$error.required" ng-message="required">Este campo é obrigatório</p>
+                    <p ng-if="newUserForm.password.$error.password" ng-message="password">A senha não atende os requisitos mínimos de segurança</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="confirmPassword">Confirmação de senha</label>
+            <input type="password" name="confirmPassword" ng-model="newUser.confirmPassword" placeholder="Confirme sua senha" required equals="{{newUser.password}}" />
+            
+            <div ng-messages="newUserForm.confirmPassword.$error" ng-if="newUserForm.confirmPassword.$touched && !newUserForm.confirmPassword.$valid" class="ui negative message">
+                <div class="content">
+                    <p ng-if="newUserForm.confirmPassword.$error.required" ng-message="required">Este campo é obrigatório</p>
+                    <p ng-if="newUserForm.confirmPassword.$error.equals" ng-message="password">Os valores digitados não conferem</p>
+                </div>
+            </div>
+        </div>
+
+        <input type="submit" ng-disabled="!newUserForm.$valid" class="ui green button" value="Logar" />
+    </form>
+</div>
+
