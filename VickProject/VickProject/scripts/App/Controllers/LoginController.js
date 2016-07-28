@@ -1,16 +1,29 @@
-﻿app.controller('loginController', function ($scope) {
+﻿app.controller('loginController',['$scope', 'signUp', function ($scope, signUp) {
     $scope.title = 'Crie aqui seu usuário';
     $scope.newUser = {
         userName: '',
         password: '',
+        emailAddress: '',
         confirmPassword: ''
         
     };
 
     $scope.signUp = function () {
-    
+        signUp($scope.newUser)
+            .success(function (data, status) {
+                alert('criado');
+            })
+            .error(function () {
+                alert('erro ocorrido');
+            });
     };
-});
+}]);
+
+app.service('signUp', ['$http', function ($http) {
+    return function (newUser) {
+        return $http.post('/api/Users', newUser);
+    }
+}]);
 
 app.directive('password', function ($timeout) {
     return {

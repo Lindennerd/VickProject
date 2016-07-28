@@ -20,7 +20,7 @@
 
         <div class="field">
             <label for="email">Endereço de email</label>
-            <input type="email" name="email" ng-model="newUser.email" placeholder="Digite o seu endereço de email" required />
+            <input type="email" name="email" ng-model="newUser.emailAddress" placeholder="Digite o seu endereço de email" required />
 
             <div ng-messages="newUserForm.email.$error" ng-if="newUserForm.email.$touched && !newUserForm.email.$valid" class="ui negative message">
                 <div class="content">
@@ -55,7 +55,7 @@
             </div>
         </div>
 
-        <input type="button" ng-disabled="!newUserForm.$valid" class="ui green button" value="Logar" />
+        <input type="submit" ng-disabled="!newUserForm.$valid" class="ui green button" value="Logar" />
     </form>
 </div>
 
