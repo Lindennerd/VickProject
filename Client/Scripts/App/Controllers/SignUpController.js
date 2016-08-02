@@ -21,7 +21,7 @@
 
 app.service('signUp', ['$http', function ($http) {
     return function (newUser) {
-        return $http.post('/api/Users', newUser);
+        return $http.post(routes.signUp.users, newUser);
     }
 }]);
 

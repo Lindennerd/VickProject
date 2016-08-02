@@ -3,6 +3,10 @@ var config = require('../config');
 
 var authMiddlewares = {
     isLogged: function (req, res, next) {
+        
+        if(req.url == '/auth'){
+            next();
+        }
 
         // check header or url parameters or post parameters for token
         var token = req.body.token || req.query.token || req.headers['x-access-token'];

@@ -32,6 +32,21 @@ authRouter.route('/auth')
                 }
             }
         });
+    });
+
+authRouter.route('/auth/signup')
+    .post(function (req, res) {
+        var user = new User();
+        user.name = req.body.userName;
+        user.email = req.body.emailAddress;
+        user.password = req.body.password;
+        user.admin = true;
+
+        user.save(function (err) {
+            if (err) res.send(err);
+
+            res.json('created user ' + user.name);
+        })
     })
 
 module.exports = authRouter;
