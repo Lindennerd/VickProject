@@ -1,5 +1,5 @@
 (function () {
-    app = angular.module('vickProjectModule', ['ngRoute']);
+    app = angular.module('vickProjectModule', ['ngRoute', 'ngStorage']);
 })();
 
 //*-- Routes --*

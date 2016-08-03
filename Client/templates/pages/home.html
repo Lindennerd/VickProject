@@ -1,5 +1,8 @@
-<div class="card card-block"  ng-controller="HomeController">
-    <div class="card-text">
+<div class="card card-block" ng-controller="HomeController">
+    <div class="card-text" ng-if="!loggedUser">
         <h2>{{title}}</h2>
+    </div>
+    <div class="card-text" ng-if="loggedUser">
+        <h2>{{loggedUser.username}}</h2>
     </div>
 </div>

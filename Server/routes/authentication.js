@@ -15,10 +15,10 @@ authRouter.route('/auth')
             if(err) throw err;
 
             if(!user){
-                res.json({success: false, message: 'User Not Found'});   
+                res.json({success: false, message: 'Usuário não encontrado'});   
             } else if (user) {
                 if(user.password != req.body.password){
-                    res.json({success: false, message: 'Invalid password'});                   
+                    res.json({success: false, message: 'Senha Inválida'});                   
                 } else {
                     var token = jwt.sign(user, config.secret, { 
                         expiresIn : 60*60*24
@@ -27,7 +27,9 @@ authRouter.route('/auth')
                     res.json({
                         success: true,
                         message: 'You\'re Logged In',
-                        token: token
+                        token: token,
+                        username: user.name,
+                        id: user._id
                     });
                 }
             }

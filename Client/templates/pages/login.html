@@ -2,8 +2,9 @@
   <h4 class="card-title">Login</h4>
   <hr>
 
+  <p ng-if="hasError">{{hasError}}</p>
   <div class="container">
-    <form name="loginForm" method="post" ng-submit="" novalidate>
+    <form name="loginForm" method="post" ng-submit="login()" novalidate>
       <div class="form-group row">
         <label for="username" class="col-sm-2 col-form-label">Nome de usuário</label>
         <div class="col-sm-10">
