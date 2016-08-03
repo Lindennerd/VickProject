@@ -12,7 +12,7 @@ var config = require('./config')
 
 var app = express();
 app.use(express.static('../Client'));
-
+console.log(__dirname);
 app.use(bodyParser.urlencoded({ extend: true }));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
