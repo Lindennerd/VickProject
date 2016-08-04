@@ -38,7 +38,7 @@ app.config(function ($routeProvider, $locationProvider, $httpProvider) {
             access_token = currentUser ? currentUser.token : null;
 
         if (access_token) {
-            config.headers.authorization = access_token;
+            config.headers['x-access-token'] = access_token;
         }
         return config;
     };
