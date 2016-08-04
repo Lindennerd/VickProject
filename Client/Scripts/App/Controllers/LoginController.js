@@ -11,9 +11,5 @@ app.controller('LoginController', ['$scope', '$rootScope', 'AuthService', functi
                 $scope.hasError = result.message;
             }
         });
-
-
-
-
     }
 }]);
