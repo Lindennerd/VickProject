@@ -23,11 +23,13 @@
                 <label for="email" class="col-sm-2 col-form-label">Endereço de email</label>
                 <div class="col-sm-10">
                     <input type="email" name="email" ng-model="newUser.emailAddress" class="form-control" placeholder="Digite o seu endereço de email"
-                        required />
+                        required  emailvalid/>
 
                 </div>
                 <div ng-messages="newUserForm.email.$error" ng-if="newUserForm.email.$touched && !newUserForm.email.$valid" class="form-control-feedback">
                     <div class="col-sm-10">
+                        <p ng-show="newUserForm.email.$pending.emailvalid">Validando email...</p>
+                        <p ng-if="newUserForm.email.$error.emailvalid" ng-message="username">Já existe um usuário com esse endereço de email</p>
                         <p ng-if="newUserForm.email.$error.required" ng-message="required">Este campo é obrigatório</p>
                         <p ng-if="newUserForm.email.$error.email" ng-message="email">O endereço de email digitado é inválido</p>
                     </div>

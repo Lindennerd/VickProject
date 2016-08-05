@@ -77,8 +77,6 @@ app.directive('username', function($q, $timeout, $http) {
   return {
     require: 'ngModel',
     link: function(scope, elm, attrs, ctrl) {
-      var usernames = ['Jim', 'John', 'Jill', 'Jackie'];
-
       ctrl.$asyncValidators.username = function(modelValue, viewValue) {
 
         if (ctrl.$isEmpty(modelValue)) {
@@ -92,6 +90,37 @@ app.directive('username', function($q, $timeout, $http) {
           .success(function (data, status) {
             if (data.filter(function(object) { 
               return object.name == modelValue 
+            }).length > 0) {
+              def.reject();
+            } else {
+              def.resolve();
+            }
+          });
+
+        return def.promise;
+      };
+    }
+  };
+});
+
+app.directive('emailvalid', function($q, $timeout, $http) {
+  return {
+    require: 'ngModel',
+    link: function(scope, elm, attrs, ctrl) {
+
+      ctrl.$asyncValidators.emailvalid = function(modelValue, viewValue) {
+
+        if (ctrl.$isEmpty(modelValue)) {
+          // consider empty model valid
+          return $q.when();
+        }
+
+        var def = $q.defer();
+
+        $http.get(routes.users.usernames)
+          .success(function (data, status) {
+            if (data.filter(function(object) { 
+              return object.email == modelValue 
             }).length > 0) {
               def.reject();
             } else {
