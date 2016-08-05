@@ -7,11 +7,14 @@
                 <label for="username" class="col-sm-2 col-form-label">Nome de Usuário</label>
                 <div class="col-sm-10">
                     <input type="text" name="username" ng-model="newUser.userName" class="form-control " placeholder="Digite o seu nome de usuário desejado"
-                        required />
+                        required username />
                 </div>
-                <div ng-messages="newUserForm.username.$error" ng-if="newUserForm.username.$touched && !newUserForm.username.$valid" class="form-control-feedback">
-                    <div class="col-sm-10">
-                        <p ng-message="required">Este campo é obrigatório</p>
+                <div ng-messages="newUserForm.username.$error" ng-if="newUserForm.username.$touched && !newUserForm.username.$valid" 
+                    class="form-control-feedback">
+                    <div class="col-sm-10"> 
+                        <p ng-show="newUserForm.username.$pending.username">Validando nome de usuário...</p>
+                        <p ng-if="newUserForm.username.$error.username" ng-message="username">Já existe um usuário com esse nome</p>
+                        <p ng-if="newUserForm.username.$error.required" ng-message="required">Este campo é obrigatório</p>
                     </div>
                 </div>
             </div>
@@ -64,3 +67,36 @@
         </form>
     </div>
 </div>
+
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="signup-success">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Sucesso :D</h4>
+        </div>
+          <div class="modal-body">
+              <p>Usuário criado com sucesso</p>
+          </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="signup-error">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Erro :(</h4>
+        </div>
+          <div class="modal-body">
+              <p>Houve um erro ao criar seu usuário...</p>
+              <p>Lamentamos o transtorno</p>
+          </div>
+    </div>
+  </div>
+</div>  

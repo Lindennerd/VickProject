@@ -19,6 +19,9 @@ app.factory('AuthService', ['$http', '$localStorage', function ($http, $localSto
         logout: function () {
             $localStorage.user = null;
         },
+        signUp: function (newUser) {
+            return $http.post(routes.signUp.users, newUser);
+        },
         getUser: function () {
             return ($localStorage.user) ? $localStorage.user : false;
         }

@@ -5,7 +5,7 @@ routes = {
     auth: {
         login: 'api/auth'
     },
-    bears: {
-        list: 'api/bears'
+    users: {
+        usernames: 'api/users'
     }
 }

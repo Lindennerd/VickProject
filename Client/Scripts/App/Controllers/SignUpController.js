@@ -1,4 +1,6 @@
-﻿app.controller('SignUpController',['$scope', 'signUp', function ($scope, signUp) {
+﻿//TODO - Refactor this file
+
+app.controller('SignUpController',['$scope', 'AuthService', function ($scope, AuthService) {
     $scope.title = 'Crie aqui seu usuário';
     $scope.newUser = {
         userName: '',
@@ -9,20 +11,17 @@
     };
 
     $scope.signUp = function () {
-        signUp($scope.newUser)
+        AuthService.signUp($scope.newUser)
             .success(function (data, status) {
-                alert('criado');
+                $('#signup-success').modal('show');
+                $('#signup-success').on('hidden.bs.modal', function () {
+                  window.location = '#/login';
+                });
             })
             .error(function () {
-                alert('erro ocorrido');
+                $('#signup-error').modal('show');
             });
     };
-}]);
-
-app.service('signUp', ['$http', function ($http) {
-    return function (newUser) {
-        return $http.post(routes.signUp.users, newUser);
-    }
 }]);
 
 app.directive('password', function ($timeout) {
@@ -73,3 +72,35 @@ app.directive('equals', [
 
   }
 ]);
+
+app.directive('username', function($q, $timeout, $http) {
+  return {
+    require: 'ngModel',
+    link: function(scope, elm, attrs, ctrl) {
+      var usernames = ['Jim', 'John', 'Jill', 'Jackie'];
+
+      ctrl.$asyncValidators.username = function(modelValue, viewValue) {
+
+        if (ctrl.$isEmpty(modelValue)) {
+          // consider empty model valid
+          return $q.when();
+        }
+
+        var def = $q.defer();
+
+        $http.get(routes.users.usernames)
+          .success(function (data, status) {
+            if (data.filter(function(object) { 
+              return object.name == modelValue 
+            }).length > 0) {
+              def.reject();
+            } else {
+              def.resolve();
+            }
+          });
+
+        return def.promise;
+      };
+    }
+  };
+});
