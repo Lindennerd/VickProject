@@ -23,36 +23,40 @@
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs pull-xs-left">
               <li class="nav-item">
-                 <a class="nav-link active" href="#">Feed <i class="fa fa-wpforms" aria-hidden="true"></i></a>
+                 <a class="nav-link active" href="#myFeed" data-toggle="tab" role="tab" 
+                    ng-click="activateNav($event)">
+                    Feed <i class="fa fa-wpforms" aria-hidden="true"></i>
+                  </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Meus Livros <i class="fa fa-book" aria-hidden="true"></i></a>
+                <a class="nav-link" href="#myBooks" data-toggle="tab" role="tab" 
+                    ng-click="activateNav($event)">
+                  Meus Livros <i class="fa fa-book" aria-hidden="true"></i>
+                </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Meus Grupos de Leitura <i class="fa fa-users" aria-hidden="true"></i></a>
+                <a class="nav-link" href="#myGroups" data-toggle="tab" role="tab" 
+                    ng-click="activateNav($event)">
+                  Meus Grupos de Leitura <i class="fa fa-users" aria-hidden="true"></i>
+                </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Meus Amigos <i class="fa fa-comments" aria-hidden="true"></i></a>
+                <a class="nav-link" href="#myFrieds" data-toggle="tab" role="tab" 
+                    ng-click="activateNav($event)">
+                  Meus Amigos <i class="fa fa-comments" aria-hidden="true"></i>
+                </a>
               </li>
             </ul>
 
           </div>
           <div class="card-block">
 
-                <div class="list-group">
-                  <a href="" class="list-group-item list-group-item-action">
-                    <h5 class="list-group-item-heading">List group item heading</h5>
-                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                  </a>
-                  <a href="" class="list-group-item list-group-item-action">
-                    <h5 class="list-group-item-heading">List group item heading</h5>
-                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                  </a>
-                  <a href="" class="list-group-item list-group-item-action">
-                    <h5 class="list-group-item-heading">List group item heading</h5>
-                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                  </a>
-                </div>
+            <div class="tab-content">
+              <div class="tab-pane fade in active" id="myFeed" role="tabpanel">myFeed</div>
+              <div class="tab-pane fade" id="myBooks" role="tabpanel">myBooks</div>
+              <div class="tab-pane fade" id="myGroups" role="tabpanel">myGroups</div>
+              <div class="tab-pane fade" id="MyFriends" role="tabpanel">MyFriends</div>
+            </div>
 
           </div>
         </div>
