@@ -1,1 +1,64 @@
-edit profile here
+<div class="row">
+  <div class="col-sm-3">
+    <div class="card">
+      <img class="card-img-top" src="https://avatars2.githubusercontent.com/u/2019507" 
+        alt="Card image cap" style="width: 100%">
+      <div class="card-block">
+        <strong class="card-title">Alterar imagem do perfil</strong>
+          <label class="custom-file">
+            <input type="file" id="file" class="custom-file-input">
+            <span class="custom-file-control">Procurar</span>
+          </label>
+      </div> 
+    </div>
+  </div>
+
+    <div class="col-sm-9">
+      <div class="card">
+        <div class="card-block">
+          <form name="edituser" ng-submit="update()" novalidate>
+
+            <div class="form-group row">
+              <label class="col-sm-2">Nome de Usuário</label>
+              <div class="col-sm-10">
+                <input type="text" name="username" ng-model="user.username" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2">Email</label>
+              <div class="col-sm-10">
+                <input type="email" name="email" ng-model="user.email" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-2">Descrição</label>
+              <div class="col-sm-10">
+                <textarea name="description" class="form-control" ng-model="user.aboutme" rows="5"></textarea>
+              </div>
+            </div>
+
+            <input type="submit" class="btn btn-outline-success" value="Salvar" ng-disabled="!edituser.$valid">
+            <button class="btn btn-outline-danger"> Cancelar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="update-success">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Sucesso :D</h4>
+        </div>
+          <div class="modal-body">
+              <p>As suas informações foram atualizadas!</p>
+          </div>
+    </div>
+  </div>
+</div>

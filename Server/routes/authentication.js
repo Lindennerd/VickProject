@@ -29,6 +29,8 @@ authRouter.route('/auth')
                         message: 'You\'re Logged In',
                         token: token,
                         username: user.name,
+                        email: user.email,
+                        aboutme: user.aboutme,
                         id: user._id
                     });
                 }
@@ -48,6 +50,38 @@ authRouter.route('/auth/signup')
             if (err) res.send(err);
 
             res.json('created user ' + user.name);
+        })
+    })
+
+authRouter.route('/auth/update')
+    .post(function (req, res) {
+        User.findById(req.body.userId, function (err, user) {
+            if (err) throw err;
+
+            if (!user) {
+                res.json({success: false, message: 'Usuário desconhecido'});
+            }
+            else {
+                user.name = req.body.username;
+                user.email = req.body.email;
+                user.aboutme = req.body.aboutme;
+                user.admin = true;
+
+                user.save(function (err) {
+                    if (err) res.send(err);
+
+                    res.json({
+                        success: true,
+                        message: 'user updated',
+                        token: user.token,
+                        username: user.name,
+                        email: user.email,
+                        aboutme: user.aboutme,
+                        id: user._id
+                    });
+                })
+            }
+
         })
     })
 
