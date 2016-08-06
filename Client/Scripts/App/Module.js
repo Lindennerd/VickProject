@@ -27,6 +27,13 @@ app.config(function ($routeProvider, $locationProvider, $httpProvider) {
             resolve: {
                 factory: checkAuthState
             }
+        })
+        .when('/edit/profile', {
+            templateUrl: 'templates/pages/editProfile.html',
+            controller: 'EditProfileController',
+            resolve: {
+                factory: checkAuthState
+            }
         });
 
     $httpProvider.interceptors.push('APIInterceptor');
