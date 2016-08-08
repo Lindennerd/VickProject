@@ -1,6 +1,10 @@
 {
-  "name": "node-api",
+  "name": "book-club",
+  "description": "vick project",
   "main": "server.js",
+  "scripts": {
+  	"start": "node server.js"
+  },
   "dependencies": {
     "body-parser": "~1.0.1",
     "express": "^4.0.0",
