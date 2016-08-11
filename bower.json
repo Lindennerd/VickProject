@@ -1,0 +1,18 @@
+{
+  "name": "book-club",
+  "description": "vick project",
+  "main": "server.js",
+  "authors": [
+    "Lindennerd"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Lindennerd/VickProject",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
